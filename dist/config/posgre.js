@@ -12,7 +12,7 @@ dotenv_1.default.config({
 const isProduction = process.env.PRODUCTION === 'true';
 console.log(process.env.PRODUCTION);
 const productionConf = {
-    connectionString: "postgres://hieu:ywG8Zbj73TeoV4NG0AOfnwLXtvsiMme9@dpg-celfo7pa6gdkdn2csu3g-a/lpshop"
+    connectionString: "postgres://hieu:ISUhPDo15lS1x955YwlCimtAE3cvhlOC@dpg-cfctgjsgqg43t5g62lug-a/veganfood"
 };
 const nonProductionConf = {
     host: process.env.HOST,
