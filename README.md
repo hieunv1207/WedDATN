@@ -1,5 +1,5 @@
-# Web app Đặt trà sữa Tocotoco dành cho admin
-https://tocotea.software
+# Web app Đặt trà sữa Veganfood dành cho admin
+http://web.veganfood.fun/   z
 
 
 
@@ -16,9 +16,9 @@ App chạy ở localhost:3000
 
 ### Nếu bạn không biết bash script
 #### 1. Clone project  
-    git clone https://github.com/DieuNN/tocotoco_milktea_web.git
+    git clone https://github.com/hieunv1207/WedDATN.git
 
-    cd tocotoco_milktea_web
+    
 
 #### 2.  Cài đặt các thư viện cần thiết
 
