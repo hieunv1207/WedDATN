@@ -10,6 +10,7 @@ export function adminLoginLogRoute(app: Application) {
             }).catch(e => {
                 res.end(e.toString())
             })
+
         } else {
             res.redirect('/login')
         }

@@ -6,10 +6,10 @@ dotenv.config({
     path: "process.env"
 })
 
-const isProduction = process.env.PRODUCTION! === 'true'
+const isProduction = process.env.PRODUCTION!.toString() === 'true'
 console.log(process.env.PRODUCTION)
 const productionConf: ClientConfig = {
-    connectionString: "postgres://hieu:ISUhPDo15lS1x955YwlCimtAE3cvhlOC@dpg-cfctgjsgqg43t5g62lug-a/veganfood"
+    connectionString: "postgres://dieu:6j52V96LmusXlpiXZTzVKQtR1QoXDb2M@dpg-cdbb2nqrrk09hiqcif50-a/tocotea"
 }
 const nonProductionConf: ClientConfig = {
     host: process.env.HOST,
