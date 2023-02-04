@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="veganfood@dpg-cfctgjsgqg43t5g62lug-a.singapore-postgres.render.com" uuid="91e45ea9-a4a4-4d00-b10f-7b59ba7e59ae">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://dpg-cfctgjsgqg43t5g62lug-a.singapore-postgres.render.com:5432/veganfood</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
