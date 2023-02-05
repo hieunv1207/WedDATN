@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>894</IntrospectionStateNumber>
+      <IntrospectionStateNumber>952</IntrospectionStateNumber>
       <ServerVersion>15.1</ServerVersion>
       <StartupTime>1675221213</StartupTime>
       <TimeZones>true ACDT
@@ -1412,7 +1412,7 @@ false posixrules
 12998||10|C|G
 12998||-9223372036854775808|U|G
 12998||10|U|G</Grants>
-      <IntrospectionStateNumber>894</IntrospectionStateNumber>
+      <IntrospectionStateNumber>952</IntrospectionStateNumber>
       <ObjectId>16389</ObjectId>
       <OwnerName>hieu</OwnerName>
     </database>
@@ -8196,7 +8196,7 @@ false posixrules
     <schema id="509" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>894</IntrospectionStateNumber>
+      <IntrospectionStateNumber>952</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>731</StateNumber>
       <OwnerName>hieu</OwnerName>
@@ -8305,19 +8305,19 @@ false posixrules
     </table>
     <table id="527" parent="509" name="CartItem">
       <ObjectId>16487</ObjectId>
-      <StateNumber>786</StateNumber>
+      <StateNumber>949</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
     <table id="528" parent="509" name="Discount">
       <ObjectId>16525</ObjectId>
-      <StateNumber>893</StateNumber>
+      <StateNumber>930</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
     <table id="529" parent="509" name="LovedItems">
       <ObjectId>16439</ObjectId>
-      <StateNumber>767</StateNumber>
+      <StateNumber>945</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
@@ -8329,49 +8329,49 @@ false posixrules
     </table>
     <table id="531" parent="509" name="OrderDetail">
       <ObjectId>16458</ObjectId>
-      <StateNumber>777</StateNumber>
+      <StateNumber>935</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
     <table id="532" parent="509" name="OrderItem">
       <ObjectId>16468</ObjectId>
-      <StateNumber>877</StateNumber>
+      <StateNumber>941</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
     <table id="533" parent="509" name="PaymentDetails">
       <ObjectId>16448</ObjectId>
-      <StateNumber>773</StateNumber>
+      <StateNumber>935</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
     <table id="534" parent="509" name="Product">
       <ObjectId>16477</ObjectId>
-      <StateNumber>874</StateNumber>
+      <StateNumber>930</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
     <table id="535" parent="509" name="ProductCategory">
       <ObjectId>16507</ObjectId>
-      <StateNumber>795</StateNumber>
+      <StateNumber>933</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
     <table id="536" parent="509" name="ShoppingSession">
       <ObjectId>16497</ObjectId>
-      <StateNumber>791</StateNumber>
+      <StateNumber>939</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
     <table id="537" parent="509" name="User">
       <ObjectId>16566</ObjectId>
-      <StateNumber>883</StateNumber>
+      <StateNumber>928</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
     <table id="538" parent="509" name="UserAddress">
       <ObjectId>16554</ObjectId>
-      <StateNumber>818</StateNumber>
+      <StateNumber>928</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>hieu</OwnerName>
     </table>
@@ -8527,7 +8527,29 @@ false posixrules
       <StateNumber>786</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="560" parent="527" name="CartItem_pkey">
+    <foreign-key id="560" parent="527" name="CartItem_sessionid_fkey">
+      <ColNames>sessionid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16624</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>949</StateNumber>
+      <RefTableId>16497</RefTableId>
+      <RefTableName>ShoppingSession</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="561" parent="527" name="CartItem_productid_fkey">
+      <ColNames>productid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16629</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>951</StateNumber>
+      <RefTableId>16477</RefTableId>
+      <RefTableName>Product</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="562" parent="527" name="CartItem_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16493</ObjectId>
@@ -8536,14 +8558,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="561" parent="527" name="CartItem_pkey">
+    <key id="563" parent="527" name="CartItem_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16494</ObjectId>
       <Primary>1</Primary>
       <StateNumber>786</StateNumber>
       <UnderlyingIndexId>16493</UnderlyingIndexId>
     </key>
-    <column id="562" parent="528" name="id">
+    <column id="564" parent="528" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;Discount_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -8552,51 +8574,51 @@ false posixrules
       <SequenceId>16524</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="563" parent="528" name="name">
+    <column id="565" parent="528" name="name">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>799</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="564" parent="528" name="description">
+    <column id="566" parent="528" name="description">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>799</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="565" parent="528" name="discountpercent">
+    <column id="567" parent="528" name="discountpercent">
       <DasType>numeric|0s</DasType>
       <Position>4</Position>
       <StateNumber>799</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="566" parent="528" name="createat">
+    <column id="568" parent="528" name="createat">
       <DasType>timestamp|0s</DasType>
       <Position>5</Position>
       <StateNumber>799</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="567" parent="528" name="active">
+    <column id="569" parent="528" name="active">
       <DasType>boolean|0s</DasType>
       <Position>6</Position>
       <StateNumber>872</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="568" parent="528" name="displayimage">
+    <column id="570" parent="528" name="displayimage">
       <DasType>text|0s</DasType>
       <Position>7</Position>
       <StateNumber>892</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="569" parent="528" name="modifiedat">
+    <column id="571" parent="528" name="modifiedat">
       <DasType>timestamp|0s</DasType>
       <Position>8</Position>
       <StateNumber>893</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="570" parent="528" name="Discount_pkey">
+    <index id="572" parent="528" name="Discount_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16531</ObjectId>
@@ -8605,14 +8627,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="571" parent="528" name="Discount_pkey">
+    <key id="573" parent="528" name="Discount_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16532</ObjectId>
       <Primary>1</Primary>
       <StateNumber>799</StateNumber>
       <UnderlyingIndexId>16531</UnderlyingIndexId>
     </key>
-    <column id="572" parent="529" name="id">
+    <column id="574" parent="529" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;LovedItems_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -8621,21 +8643,43 @@ false posixrules
       <SequenceId>16438</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="573" parent="529" name="useid">
+    <column id="575" parent="529" name="useid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>767</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="574" parent="529" name="productid">
+    <column id="576" parent="529" name="productid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>767</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="575" parent="529" name="LovedItems_pkey">
+    <foreign-key id="577" parent="529" name="LovedItems_useid_fkey">
+      <ColNames>useid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16619</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>947</StateNumber>
+      <RefTableId>16566</RefTableId>
+      <RefTableName>User</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="578" parent="529" name="LovedItems_productid_fkey">
+      <ColNames>productid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16614</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>945</StateNumber>
+      <RefTableId>16477</RefTableId>
+      <RefTableName>Product</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="579" parent="529" name="LovedItems_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16443</ObjectId>
@@ -8644,14 +8688,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="576" parent="529" name="LovedItems_pkey">
+    <key id="580" parent="529" name="LovedItems_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16444</ObjectId>
       <Primary>1</Primary>
       <StateNumber>767</StateNumber>
       <UnderlyingIndexId>16443</UnderlyingIndexId>
     </key>
-    <column id="577" parent="530" name="id">
+    <column id="581" parent="530" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;Notifications_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -8660,35 +8704,35 @@ false posixrules
       <SequenceId>16534</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="578" parent="530" name="title">
+    <column id="582" parent="530" name="title">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>804</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="579" parent="530" name="message">
+    <column id="583" parent="530" name="message">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>804</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="580" parent="530" name="type">
+    <column id="584" parent="530" name="type">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>804</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="581" parent="530" name="image">
+    <column id="585" parent="530" name="image">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>804</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="582" parent="530" name="Notifications_pkey">
+    <index id="586" parent="530" name="Notifications_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16541</ObjectId>
@@ -8697,14 +8741,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="583" parent="530" name="Notifications_pkey">
+    <key id="587" parent="530" name="Notifications_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16542</ObjectId>
       <Primary>1</Primary>
       <StateNumber>804</StateNumber>
       <UnderlyingIndexId>16541</UnderlyingIndexId>
     </key>
-    <column id="584" parent="531" name="id">
+    <column id="588" parent="531" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;OrderDetail_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -8713,39 +8757,61 @@ false posixrules
       <SequenceId>16457</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="585" parent="531" name="userid">
+    <column id="589" parent="531" name="userid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>777</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="586" parent="531" name="paymentid">
+    <column id="590" parent="531" name="paymentid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>777</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="587" parent="531" name="total">
+    <column id="591" parent="531" name="total">
       <DasType>numeric|0s</DasType>
       <Position>4</Position>
       <StateNumber>777</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="588" parent="531" name="createat">
+    <column id="592" parent="531" name="createat">
       <DasType>timestamp|0s</DasType>
       <Position>5</Position>
       <StateNumber>777</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="589" parent="531" name="modifiedat">
+    <column id="593" parent="531" name="modifiedat">
       <DasType>timestamp|0s</DasType>
       <Position>6</Position>
       <StateNumber>777</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="590" parent="531" name="OrderDetail_pkey">
+    <foreign-key id="594" parent="531" name="OrderDetail_id_fkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16589</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>935</StateNumber>
+      <RefTableId>16448</RefTableId>
+      <RefTableName>PaymentDetails</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="595" parent="531" name="OrderDetail_userid_fkey">
+      <ColNames>userid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16594</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>937</StateNumber>
+      <RefTableId>16566</RefTableId>
+      <RefTableName>User</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="596" parent="531" name="OrderDetail_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16464</ObjectId>
@@ -8754,14 +8820,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="591" parent="531" name="OrderDetail_pkey">
+    <key id="597" parent="531" name="OrderDetail_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16465</ObjectId>
       <Primary>1</Primary>
       <StateNumber>777</StateNumber>
       <UnderlyingIndexId>16464</UnderlyingIndexId>
     </key>
-    <column id="592" parent="532" name="id">
+    <column id="598" parent="532" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;OderItem_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -8770,67 +8836,95 @@ false posixrules
       <SequenceId>16467</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="593" parent="532" name="oderid">
+    <column id="599" parent="532" name="oderid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>781</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="594" parent="532" name="productid">
+    <column id="600" parent="532" name="productid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>781</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="595" parent="532" name="quantity">
+    <column id="601" parent="532" name="quantity">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>781</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="596" parent="532" name="createat">
+    <column id="602" parent="532" name="createat">
       <DasType>timestamp|0s</DasType>
       <Position>5</Position>
       <StateNumber>781</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="597" parent="532" name="modifiedat">
+    <column id="603" parent="532" name="modifiedat">
       <DasType>timestamp|0s</DasType>
       <Position>6</Position>
       <StateNumber>781</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="598" parent="532" name="size">
+    <column id="604" parent="532" name="size">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StateNumber>781</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="599" parent="532" name="pricebeforediscount">
+    <column id="605" parent="532" name="pricebeforediscount">
       <DasType>numeric|0s</DasType>
       <Position>8</Position>
       <StateNumber>781</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="600" parent="532" name="note">
+    <column id="606" parent="532" name="note">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StateNumber>781</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="601" parent="532" name="orderid">
+    <column id="607" parent="532" name="orderid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>10</Position>
       <StateNumber>781</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="602" parent="532" name="OderItem_pkey">
+    <column id="608" parent="532" name="priceafterdiscount">
+      <DasType>numeric|0s</DasType>
+      <Position>11</Position>
+      <StateNumber>912</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <foreign-key id="609" parent="532" name="OrderItem_productid_fkey">
+      <ColNames>productid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16609</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>943</StateNumber>
+      <RefTableId>16477</RefTableId>
+      <RefTableName>Product</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="610" parent="532" name="OrderItem_orderid_fkey">
+      <ColNames>orderid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16604</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>941</StateNumber>
+      <RefTableId>16458</RefTableId>
+      <RefTableName>OrderDetail</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="611" parent="532" name="OderItem_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16474</ObjectId>
@@ -8839,14 +8933,13 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="603" parent="532" name="OderItem_pkey">
-      <NameSurrogate>1</NameSurrogate>
+    <key id="612" parent="532" name="OderItem_pkey">
       <ObjectId>16475</ObjectId>
       <Primary>1</Primary>
       <StateNumber>781</StateNumber>
       <UnderlyingIndexId>16474</UnderlyingIndexId>
     </key>
-    <column id="604" parent="533" name="id">
+    <column id="613" parent="533" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;PaymentDetails_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -8855,68 +8948,68 @@ false posixrules
       <SequenceId>16447</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="605" parent="533" name="amount">
+    <column id="614" parent="533" name="amount">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>773</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="606" parent="533" name="status">
+    <column id="615" parent="533" name="status">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>773</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="607" parent="533" name="createat">
+    <column id="616" parent="533" name="createat">
       <DasType>timestamp|0s</DasType>
       <Position>4</Position>
       <StateNumber>773</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="608" parent="533" name="modifiedat">
+    <column id="617" parent="533" name="modifiedat">
       <DasType>timestamp|0s</DasType>
       <Position>5</Position>
       <StateNumber>773</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="609" parent="533" name="provider">
+    <column id="618" parent="533" name="provider">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>773</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="610" parent="533" name="address">
+    <column id="619" parent="533" name="address">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StateNumber>773</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="611" parent="533" name="phonenumber">
+    <column id="620" parent="533" name="phonenumber">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StateNumber>773</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="612" parent="533" name="note">
+    <column id="621" parent="533" name="note">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StateNumber>773</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="613" parent="533" name="orderidid">
+    <column id="622" parent="533" name="orderidid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>10</Position>
       <StateNumber>773</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="614" parent="533" name="PaymentDetails_pkey">
+    <index id="623" parent="533" name="PaymentDetails_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16454</ObjectId>
@@ -8925,14 +9018,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="615" parent="533" name="PaymentDetails_pkey">
+    <key id="624" parent="533" name="PaymentDetails_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16455</ObjectId>
       <Primary>1</Primary>
       <StateNumber>773</StateNumber>
       <UnderlyingIndexId>16454</UnderlyingIndexId>
     </key>
-    <column id="616" parent="534" name="id">
+    <column id="625" parent="534" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;Product_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -8941,68 +9034,90 @@ false posixrules
       <SequenceId>16476</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="617" parent="534" name="name">
+    <column id="626" parent="534" name="name">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>783</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="618" parent="534" name="categoryid">
+    <column id="627" parent="534" name="categoryid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>783</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="619" parent="534" name="quantity">
+    <column id="628" parent="534" name="quantity">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>783</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="620" parent="534" name="price">
+    <column id="629" parent="534" name="price">
       <DasType>numeric|0s</DasType>
       <Position>5</Position>
       <StateNumber>783</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="621" parent="534" name="discountid">
+    <column id="630" parent="534" name="discountid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>783</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="622" parent="534" name="displayimage">
+    <column id="631" parent="534" name="displayimage">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StateNumber>783</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="623" parent="534" name="size">
+    <column id="632" parent="534" name="size">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StateNumber>783</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="624" parent="534" name="active">
+    <column id="633" parent="534" name="active">
       <DasType>boolean|0s</DasType>
       <Position>9</Position>
       <StateNumber>783</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="625" parent="534" name="description">
+    <column id="634" parent="534" name="description">
       <DasType>text|0s</DasType>
       <DefaultExpression>&apos;&apos;::text</DefaultExpression>
       <Position>10</Position>
       <StateNumber>874</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="626" parent="534" name="Product_pkey">
+    <foreign-key id="635" parent="534" name="Product_categoryid_fkey">
+      <ColNames>categoryid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16584</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>933</StateNumber>
+      <RefTableId>16507</RefTableId>
+      <RefTableName>ProductCategory</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="636" parent="534" name="Product_discountid_fkey">
+      <ColNames>discountid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16579</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>930</StateNumber>
+      <RefTableId>16525</RefTableId>
+      <RefTableName>Discount</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="637" parent="534" name="Product_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16483</ObjectId>
@@ -9011,14 +9126,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="627" parent="534" name="Product_pkey">
+    <key id="638" parent="534" name="Product_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16484</ObjectId>
       <Primary>1</Primary>
       <StateNumber>783</StateNumber>
       <UnderlyingIndexId>16483</UnderlyingIndexId>
     </key>
-    <column id="628" parent="535" name="id">
+    <column id="639" parent="535" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;ProductCategory_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -9027,40 +9142,40 @@ false posixrules
       <SequenceId>16506</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="629" parent="535" name="name">
+    <column id="640" parent="535" name="name">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>795</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="630" parent="535" name="description">
+    <column id="641" parent="535" name="description">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>795</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="631" parent="535" name="displayimage">
+    <column id="642" parent="535" name="displayimage">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>795</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="632" parent="535" name="createat">
+    <column id="643" parent="535" name="createat">
       <DasType>timestamp|0s</DasType>
       <Position>5</Position>
       <StateNumber>795</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="633" parent="535" name="modifiedat">
+    <column id="644" parent="535" name="modifiedat">
       <DasType>timestamp|0s</DasType>
       <Position>6</Position>
       <StateNumber>795</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="634" parent="535" name="ProductCategory_pkey">
+    <index id="645" parent="535" name="ProductCategory_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16513</ObjectId>
@@ -9069,14 +9184,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="635" parent="535" name="ProductCategory_pkey">
+    <key id="646" parent="535" name="ProductCategory_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16514</ObjectId>
       <Primary>1</Primary>
       <StateNumber>795</StateNumber>
       <UnderlyingIndexId>16513</UnderlyingIndexId>
     </key>
-    <column id="636" parent="536" name="id">
+    <column id="647" parent="536" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;ShoppingSession_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -9085,32 +9200,43 @@ false posixrules
       <SequenceId>16496</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="637" parent="536" name="userid">
+    <column id="648" parent="536" name="userid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>791</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="638" parent="536" name="total">
+    <column id="649" parent="536" name="total">
       <DasType>numeric|0s</DasType>
       <Position>3</Position>
       <StateNumber>791</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="639" parent="536" name="createat">
+    <column id="650" parent="536" name="createat">
       <DasType>timestamp|0s</DasType>
       <Position>4</Position>
       <StateNumber>791</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="640" parent="536" name="displayimage">
+    <column id="651" parent="536" name="displayimage">
       <DasType>timestamp|0s</DasType>
       <Position>5</Position>
       <StateNumber>791</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="641" parent="536" name="ShoppingSession_pkey">
+    <foreign-key id="652" parent="536" name="ShoppingSession_userid_fkey">
+      <ColNames>userid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16599</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>939</StateNumber>
+      <RefTableId>16566</RefTableId>
+      <RefTableName>User</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="653" parent="536" name="ShoppingSession_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16503</ObjectId>
@@ -9119,14 +9245,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="642" parent="536" name="ShoppingSession_pkey">
+    <key id="654" parent="536" name="ShoppingSession_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16504</ObjectId>
       <Primary>1</Primary>
       <StateNumber>791</StateNumber>
       <UnderlyingIndexId>16503</UnderlyingIndexId>
     </key>
-    <column id="643" parent="537" name="id">
+    <column id="655" parent="537" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;User_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -9135,65 +9261,65 @@ false posixrules
       <SequenceId>16565</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="644" parent="537" name="email">
+    <column id="656" parent="537" name="email">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>883</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="645" parent="537" name="password">
+    <column id="657" parent="537" name="password">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>883</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="646" parent="537" name="name">
+    <column id="658" parent="537" name="name">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>883</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="647" parent="537" name="phonenumber">
+    <column id="659" parent="537" name="phonenumber">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>883</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="648" parent="537" name="createat">
+    <column id="660" parent="537" name="createat">
       <DasType>timestamp|0s</DasType>
       <Position>6</Position>
       <StateNumber>883</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="649" parent="537" name="modifiedat">
+    <column id="661" parent="537" name="modifiedat">
       <DasType>timestamp|0s</DasType>
       <Position>7</Position>
       <StateNumber>883</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="650" parent="537" name="username">
+    <column id="662" parent="537" name="username">
       <DasType>text|0s</DasType>
       <Position>8</Position>
       <StateNumber>883</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="651" parent="537" name="tokendevice">
+    <column id="663" parent="537" name="tokendevice">
       <DasType>text|0s</DasType>
       <Position>9</Position>
       <StateNumber>883</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="652" parent="537" name="active">
+    <column id="664" parent="537" name="active">
       <DasType>boolean|0s</DasType>
       <Position>10</Position>
       <StateNumber>883</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="653" parent="537" name="User_pkey">
+    <index id="665" parent="537" name="User_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16572</ObjectId>
@@ -9202,14 +9328,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="654" parent="537" name="User_pkey">
+    <key id="666" parent="537" name="User_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16573</ObjectId>
       <Primary>1</Primary>
       <StateNumber>883</StateNumber>
       <UnderlyingIndexId>16572</UnderlyingIndexId>
     </key>
-    <column id="655" parent="538" name="id">
+    <column id="667" parent="538" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;UserAddress_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -9218,28 +9344,38 @@ false posixrules
       <SequenceId>16553</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="656" parent="538" name="userid">
+    <column id="668" parent="538" name="userid">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>818</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="657" parent="538" name="address">
+    <column id="669" parent="538" name="address">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>818</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="658" parent="538" name="phonenumber">
+    <column id="670" parent="538" name="phonenumber">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>818</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="659" parent="538" name="UserAddress_pkey">
+    <foreign-key id="671" parent="538" name="fk_user_id">
+      <ColNames>id</ColNames>
+      <ObjectId>16574</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>928</StateNumber>
+      <RefTableId>16566</RefTableId>
+      <RefTableName>User</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="672" parent="538" name="UserAddress_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16560</ObjectId>
@@ -9248,14 +9384,14 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="660" parent="538" name="UserAddress_pkey">
+    <key id="673" parent="538" name="UserAddress_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16561</ObjectId>
       <Primary>1</Primary>
       <StateNumber>818</StateNumber>
       <UnderlyingIndexId>16560</UnderlyingIndexId>
     </key>
-    <column id="661" parent="539" name="id">
+    <column id="674" parent="539" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;&quot;UsermomoPayment_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -9264,21 +9400,21 @@ false posixrules
       <SequenceId>16515</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="662" parent="539" name="userid">
+    <column id="675" parent="539" name="userid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>797</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="663" parent="539" name="momoaccount">
+    <column id="676" parent="539" name="momoaccount">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>797</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="664" parent="539" name="UsermomoPayment_pkey">
+    <index id="677" parent="539" name="UsermomoPayment_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16522</ObjectId>
@@ -9287,7 +9423,7 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="665" parent="539" name="UsermomoPayment_pkey">
+    <key id="678" parent="539" name="UsermomoPayment_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16523</ObjectId>
       <Primary>1</Primary>

@@ -9,14 +9,14 @@ export function homeRoute(app: Application) {
         if (req.session.userid !== 'admin') {
             res.redirect("/login")
         } else {
-            // Promise.all([getAllStatistical(), getOrders(null)]).then(result => {
-            //     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
-            //     console.log(result[0])
-            //     console.log(result[1])
-            //     // res.render('index', {data: result[0].result, orders: result[1].result})
-            //     res.render('index')
-            // })
-            res.render('index')
+            Promise.all([getAllStatistical(), getOrders(null)]).then(result => {
+                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+                console.log(result[0])
+                console.log(result[1])
+                res.render('index', {data: result[0].result, orders: result[1].result})
+                // res.render('index')
+            })
+            // res.render('index')
         }
     });
 }
