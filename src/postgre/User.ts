@@ -100,10 +100,7 @@ export async function createUser(user: User): Promise<APIResponse<boolean>> {
 
 export async function getUsers() {
     const connection = await new Pool(PostgreSQLConfig)
-    let result = await connection.query(`select "User".id, name, email, "User".phoneNumber, createAt, address, active
-                                         from "User"
-                                                  inner join "UserAddress" on "User".id = "UserAddress".userId
-                                         order by id`)
+    let result = await connection.query(`select * from "User"`)
     result.rows.map(item => {
         if (item.active == true) {
             item.active = "Đang hoạt động"

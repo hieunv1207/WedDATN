@@ -83,7 +83,7 @@ export async function getCartInfo(userId: number, sessionId: number): Promise<AP
                                                and userid = ${userId};`)
         return createResult(result.rows[0])
     } catch (e) {
-        return createException(e)
+        throw createException(e)
     }
 }
 

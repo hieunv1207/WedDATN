@@ -20,7 +20,7 @@ export function productRoute(app: Application, upload: multer.Multer) {
             // let products = await getProducts()
             /*Put all promises into a pool, faster than call each, 3s-> 1.5s*/
             let result = await Promise.all([getProductCategories(), getDiscounts(), getProducts()])
-            console.log(result[2].result)
+            console.log("DISCOUNT 2",result)
             res.render('product', {
                 productCategories: result[0].result,
                 discounts: result[1].result,
@@ -90,6 +90,7 @@ export function productRoute(app: Application, upload: multer.Multer) {
                     console.log(r)
                     res.redirect("/product")
                 }).catch(e => {
+                    console.log(e)
                     res.end(e.toString())
                 })
             })

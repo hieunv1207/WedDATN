@@ -9,18 +9,19 @@ export async function addProduct(product: Product): Promise<APIResponse<boolean>
         const result = await connection.query(`insert into "Product"
                                                values (default,
                                                        '${product.productName}',
-                                                       '${product.productDescription}',
                                                        '${product.productCategoryId}',
                                                        '${product.quantity}',
                                                        '${product.price}',
                                                        ${product.discountId},
                                                        '${product.displayImage}',
-                                                       '${product.size}')`)
+                                                       '${product.size}',
+                                                       true,
+                                                       '${product.productDescription}')`)
         await connection.query(`commit`)
         return createResult(true)
     } catch (e) {
         await connection.query(`rollback`)
-        return createException(e)
+        throw createException(e)
     }
 }
 

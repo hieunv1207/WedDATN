@@ -12,13 +12,14 @@ export async function createDiscount(discount: Discount): Promise<APIResponse<bo
                                                   '${discount.description}',
                                                   '${discount.discountPercent}',
                                                   now(),
-                                                  now(),
-                                                  '${discount.displayImage}')`)
+                                                  true,
+                                                  '${discount.displayImage}',
+                                                  now())`)
         await connect.query(`commit`)
         return createResult(result.rowCount === 1)
     } catch (e) {
         await connect.query(`rollback`)
-        return createException(e)
+        throw createException(e)
     }
 }
 
@@ -99,12 +100,13 @@ export async function getDiscounts(): Promise<APIResponse<Discount[]>> {
     try {
         await connect.query(`begin`)
         let result = await connect.query(`select *
-                                          from "Discount" where active = true order by id`)
+                                          from "Discount"`)
         result.rows.map(item => {
             item.createat = new Date(item.createat).toLocaleString()
             item.modifiedat = new Date(item.modifiedat).toLocaleString()
         })
         await connect.query(`commit`)
+        console.log("DISCOUNT 1", result.rows)
         return createResult(result.rows)
     } catch (e) {
         await connect.query(`rollback`)

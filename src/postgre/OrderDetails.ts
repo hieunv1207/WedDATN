@@ -318,7 +318,6 @@ export async function getOrders(type: string | null): Promise<APIResponse<any>> 
                                                                            from "OrderDetail"
                                                                                     inner join "PaymentDetails" PD on PD.id = "OrderDetail".paymentid
                                                                                     inner join "OrderItem" on "OrderDetail".id = "OrderItem".orderid)
-                                               and status like '${type}'
                                              order by PD.modifiedat desc `)
         const numberFormatter = Intl.NumberFormat('vi-VN', {style: "currency", currency: "VND"})
         const map = new Map()
@@ -394,7 +393,7 @@ export async function getOrders(type: string | null): Promise<APIResponse<any>> 
 export async function getUserCurrentOrder(userId: number): Promise<APIResponse<Order>> {
     try {
         const connection = await new Pool(PostgreSQLConfig)
-        let result = await connection.query(`select orderid       as "orderId",
+        let result = await connection.query(`select orderidid     as "orderId",
                                                     round(total)  as "total",
                                                     paymentid     as "paymentId",
                                                     PD.createat   as "createAt",
@@ -464,7 +463,7 @@ export async function userCancelOrder(userId: number, orderId: number): Promise<
                                              set status     = 'Bị hủy',
                                                  modifiedat = now()
                                              where id = ${paymentId}
-                                               and orderid = ${orderId}
+                                               and orderidid = ${orderId}
                                                and status like 'Đợi xác nhận'`)
         await connection.query(`commit`)
         if (result.rowCount != 1) {

@@ -6,7 +6,9 @@ import {updateDiscountWithoutImage} from "../postgre/Discount";
 
 export function discountRoute(app: Application, upload: multer.Multer) {
     app.get("/discount", async (req: Request, res: Response) => {
+        console.log("getting discount ...")
         let discounts = await getDiscounts()
+        console.log("DISCOUNT",discounts)
         res.render("discount", {discounts: discounts.result})
     })
 
@@ -59,6 +61,7 @@ export function discountRoute(app: Application, upload: multer.Multer) {
                 }).then(r1 => {
                     res.redirect("/discount")
                 }).catch(e => {
+                    console.log(e)
                     res.end(e.toString())
                 })
             })

@@ -12,6 +12,7 @@ export function productCategoryRoute(app: Application, upload: multer.Multer) {
         //     res.redirect('/login')
         // }
         getProductCategories().then(r => {
+            console.log(r)
             res.render('product_category', {categories: r.result})
         })
         // res.render('product_category')
