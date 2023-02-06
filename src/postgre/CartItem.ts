@@ -41,7 +41,7 @@ export async function addItemToCart(userId: number, sessionId: number, productId
         }
     } catch (e) {
         await connection.query(`rollback`)
-        return createException(e)
+        throw createException(e)
     }
 }
 
@@ -58,7 +58,7 @@ export async function isItemInTempCart(productId: number, sessionId: number): Pr
             return createResult(true)
         }
     } catch (e) {
-        return createException(e)
+        throw createException(e)
     }
 }
 
@@ -79,7 +79,7 @@ export async function removeItemFromCart(itemId: number, sessionId: number): Pro
         }
     } catch (e) {
         await connection.query(`rollback`)
-        return createException(e)
+        throw createException(e)
     }
 }
 
@@ -108,12 +108,12 @@ export async function updateCartItem(userId: number, sessionId: number, productI
             if (result.rowCount != 0) {
                 return createResult(true)
             } else {
-                return createException("Khong the cap nhat! Xem lai session ID")
+                throw createException("Khong the cap nhat! Xem lai session ID")
             }
         }
     } catch (e) {
         await connection.query(`rollback`)
-        return createException(e)
+        throw createException(e)
     }
 }
 
@@ -148,7 +148,7 @@ export async function getCartItems(userId: number, sessionId: number): Promise<A
         `)
         return createResult(result.rows)
     } catch (e) {
-        return createException(e)
+        throw createException(e)
     }
 }
 
