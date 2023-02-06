@@ -32,6 +32,7 @@ export async function addItemToCart(userId: number, sessionId: number, productId
                                                                '${note}')
             `)
             await connection.query(`commit`)
+            console.log(insertResult)
             if (insertResult.rowCount == 1) {
                 await triggerUpdateSessionTotal(userId, sessionId).then()
                 return createResult(true)
